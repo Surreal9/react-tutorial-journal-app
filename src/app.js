@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import JournalContainer from './JournalContainer';
+
 ReactDOM.render(
-  <h1>Hello world!</h1>,
+  <JournalContainer />,
   document.getElementById('app')
 );

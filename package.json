@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public --inline --progress --colors",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint src/**"
   },
   "author": "",
   "license": "ISC",
