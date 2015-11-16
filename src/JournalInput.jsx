@@ -1,20 +1,23 @@
 import React from 'react';
 
-const JournalInput = ({onAddPost, newPostText, onChangePostText}) =>
+const JournalInput = ({onSavePost, onChangePostText, onCancelEdit, inputText, editing}) =>
   <div>
       <div>
         <label>
-          <div>Enter New Post</div>
-          <textarea rows="6" cols="100" value={newPostText} onChange={onChangePostText}/>
+          <div>Journal Post</div>
+          <textarea rows="6" cols="100" value={inputText} onChange={onChangePostText}/>
         </label>
       </div>
-      <button onClick={onAddPost}>Add Post</button>
+      <button onClick={onSavePost}>{editing ? 'Update' : 'Add'} Post</button>
+      {editing && <button onClick={onCancelEdit}>Cancel</button>}
   </div>;
 
 JournalInput.propTypes = {
-  onAddPost: React.PropTypes.func,
+  onSavePost: React.PropTypes.func,
   onChangePostText: React.PropTypes.func,
-  newPostText: React.PropTypes.string,
+  onCancelEdit: React.PropTypes.func,
+  inputText: React.PropTypes.string,
+  editing: React.PropTypes.bool,
 };
 
 export default JournalInput;
