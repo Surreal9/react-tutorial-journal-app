@@ -1,4 +1,5 @@
 import React from 'react';
+import marked from 'marked';
 
 const PostListing = ({onStartPostEdit, onDeletePost, posts}) =>
   <div>
@@ -7,7 +8,7 @@ const PostListing = ({onStartPostEdit, onDeletePost, posts}) =>
         <span style={{fontWeight: 'bold'}}>{post.date}</span>
         [<i onClick={() => onStartPostEdit(ix)} className="fa fa-pencil" title="Edit Post"></i>]
         [<i onClick={() => onDeletePost(ix)} className="fa fa-trash" title="Delete Post"></i>]
-        <p>{post.text}</p>
+        <p dangerouslySetInnerHTML={{__html: marked(post.text)}} />
       </div>)}
   </div>;
 
