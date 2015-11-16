@@ -15,6 +15,7 @@ export default class JournalContainer extends React.Component {
     this.onSavePost = ::this.onSavePost;
     this.onStartPostEdit = ::this.onStartPostEdit;
     this.onCancelEdit = ::this.onCancelEdit;
+    this.onDeletePost = ::this.onDeletePost;
   }
 
   // Set initial state
@@ -59,20 +60,35 @@ export default class JournalContainer extends React.Component {
     this.setState({editPostIx: NEWPOST, inputText: ''});
   }
 
+  onDeletePost(editPostIx) {
+    this.state.posts.splice(editPostIx, 1);
+    this.setState({
+      posts: this.state.posts,
+      editPostIx: NEWPOST,
+      inputText: '',
+    });
+  }
+
   render() {
     return (
       <div>
+
         <h1>Local Journal</h1>
+
         <JournalInput
           onSavePost={this.onSavePost}
           onChangePostText={this.onChangePostText}
           onCancelEdit={this.onCancelEdit}
           inputText={this.state.inputText}
           editing={this.state.editPostIx !== NEWPOST} />
+
         <br/>
+
         <PostListing
           onStartPostEdit={this.onStartPostEdit}
+          onDeletePost={this.onDeletePost}
           posts={this.state.posts}/>
+
       </div>
     );
   }
