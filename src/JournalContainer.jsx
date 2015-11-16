@@ -25,6 +25,12 @@ export default class JournalContainer extends React.Component {
     editPostIx: NEWPOST,
   }
 
+  componentWillMount() {
+    if (localStorage.posts !== undefined) {
+      this.setState({posts: JSON.parse(localStorage.posts)});
+    }
+  }
+
   onChangePostText(e) {
     this.setState({inputText: e.target.value});
   }
@@ -34,7 +40,7 @@ export default class JournalContainer extends React.Component {
     if (this.state.editPostIx === NEWPOST) {
       const newPost = {
         text: this.state.inputText,
-        date: new Date(),
+        date: new Date().toLocaleString(),
       };
       this.state.posts = this.state.posts.concat(newPost);
     } else {
@@ -47,6 +53,8 @@ export default class JournalContainer extends React.Component {
       inputText: '',
       editPostIx: NEWPOST,
     });
+
+    this.persistPosts();
   }
 
   onStartPostEdit(editPostIx) {
@@ -67,6 +75,12 @@ export default class JournalContainer extends React.Component {
       editPostIx: NEWPOST,
       inputText: '',
     });
+
+    this.persistPosts();
+  }
+
+  persistPosts() {
+    localStorage.posts = JSON.stringify(this.state.posts);
   }
 
   render() {
