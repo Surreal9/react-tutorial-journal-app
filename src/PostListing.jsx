@@ -1,9 +1,14 @@
 import React from 'react';
 import marked from 'marked';
 
-const PostListing = ({onStartPostEdit, onDeletePost, posts}) =>
+function filterPosts(posts, filterText) {
+  if (filterText.length === 0) return posts;
+  return posts.filter(post => new RegExp(filterText, 'i').test(post.text));
+}
+
+const PostListing = ({onStartPostEdit, onDeletePost, posts, filterText}) =>
   <div>
-    {posts.map((post, ix) =>
+    {filterPosts(posts, filterText).map((post, ix) =>
       <div key={post.date}>
         <span style={{fontWeight: 'bold'}}>{post.date}</span>
         [<i onClick={() => onStartPostEdit(ix)} className="fa fa-pencil" title="Edit Post"></i>]

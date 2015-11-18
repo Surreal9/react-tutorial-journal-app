@@ -2,6 +2,7 @@ import React from 'react';
 
 import JournalInput from './JournalInput';
 import PostListing from './PostListing';
+import PostFilter from './PostFilter';
 
 const NEWPOST = -1;
 
@@ -12,6 +13,7 @@ export default class JournalContainer extends React.Component {
 
     // bind 'this' reference for our class methods
     this.onChangePostText = ::this.onChangePostText;
+    this.onChangeFilterText = ::this.onChangeFilterText;
     this.onSavePost = ::this.onSavePost;
     this.onStartPostEdit = ::this.onStartPostEdit;
     this.onCancelEdit = ::this.onCancelEdit;
@@ -22,6 +24,7 @@ export default class JournalContainer extends React.Component {
   state = {
     posts: [],
     inputText: '',
+    filterText: '',
     editPostIx: NEWPOST,
   }
 
@@ -33,6 +36,10 @@ export default class JournalContainer extends React.Component {
 
   onChangePostText(e) {
     this.setState({inputText: e.target.value});
+  }
+
+  onChangeFilterText(e) {
+    this.setState({filterText: e.target.value});
   }
 
   onSavePost() {
@@ -98,10 +105,17 @@ export default class JournalContainer extends React.Component {
 
         <br/>
 
+        <PostFilter
+          onChangeFilterText={this.onChangeFilterText}
+          filterText={this.state.filterText}/>
+
+        <br/>
+
         <PostListing
           onStartPostEdit={this.onStartPostEdit}
           onDeletePost={this.onDeletePost}
-          posts={this.state.posts}/>
+          posts={this.state.posts}
+          filterText={this.state.filterText}/>
 
       </div>
     );
