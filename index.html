@@ -7,12 +7,12 @@
     <title>Modern JavaScript Development With ReactJS</title>
 
     <meta name="description" content="Modern JavaScript Development With ReactJS">
-    <meta name="author" content="Sergio Araki">
+    <meta name="author" content="John Arnold">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="reveal/css/reveal.min.css">
-    <link rel="stylesheet" href="reveal/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="reveal/css/theme/night.css" id="theme">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
@@ -21,6 +21,33 @@
     <script>
       document.write( '<link rel="stylesheet" href="reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
+
+    <style>
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  line-height: 0.9em;
+}
+
+.reveal section img {
+  margin-top: 1em;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.reveal {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.slides {
+  /*zoom: 0.844714;*/
+}
+    </style>
 
     <!--[if lt IE 9]>
     <script src="reveal/lib/js/html5shiv.js"></script>
@@ -59,7 +86,7 @@
           <section>
             <h2>About Me - John Arnold</h2>
             <img class="fragment" src="img/ishoulddomoretalks.jpg" width="50%" style="float:left">
-            <ul class="fragment" style="width:45%;padding-top:1em;">
+            <ul class="fragment" style="width:45%;margin-top:1em;">
               <li>Programming for 25+ years, professionally for 10+ years</li>
               <li>Worked for companies ranging from 1-2 people startups, to Microsoft</li>
               <li>Latest focus is Web</li>
@@ -92,7 +119,7 @@
 
         <section>
           <h2>NodeJS</h2>
-          <img src="img/nodejs.png" style="float:right">
+          <img src="img/nodejs.png" style="float:right;margin-top:0;">
           <ul style="width:50%;">
             <li>Run JavaScript on the server</li>
             <li>Based on Chrome's V8 JavaScript engine</li>
@@ -109,13 +136,13 @@
                 <li>Installs modules into node_modules folder</li>
               </ul>
             </ul>
-            <img src="img/npm-logo.svg" style="float:right;padding-top:3em;width:8em;">
+            <img src="img/npm-logo.svg" style="float:right;margin-top:3em;width:8em;">
           </span>
         </section>
 
         <section>
           <h2>Webpack</h2>
-          <img src="img/bundleallthethings.jpg" width="40%" style="float:right;padding-top:3em;">
+          <img src="img/bundleallthethings.jpg" width="40%" style="float:right;margin-top:3em;">
           <ul style="width:50%;">
             <li>Supports the most common module styles (CommonJS, AMD, and ES2015 Import)</li>
             <li>Performs module bundling</li>
@@ -132,7 +159,7 @@
         <section>
 
           <section>
-            <img src="img/react.png" alt="React">
+            <img src="img/react.png" alt="React" style="margin-top: -.5em;">
           </section>
 
           <section>
